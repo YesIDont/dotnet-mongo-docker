@@ -1,26 +1,26 @@
 # ASP.NET + MongoDB tutorial
 
 ### Instructions worth noting
-dotnet --version
-dotnet new webapi -o Catalog
-Data transfer objects
-dotnet add package MongoDB.Driver
-docker run -d --rm --name mongo -p 27017:27017 -v mongodbdata:/data/db mongo
-docker exec -it [mongo|id] bash
-docker ps
-docker stop [docker id]
-user-secrets init
-user-secrets set MongoDbSettings:Password Pass#word1
+- dotnet --version
+- dotnet new webapi -o Catalog
+- Data transfer objects
+- dotnet add package MongoDB.Driver
+- docker run -d --rm --name mongo -p 27017:27017 -v mongodbdata:/data/db mongo
+- docker exec -it [mongo|id] bash
+- docker ps
+- docker stop [docker id]
+- user-secrets init
+- user-secrets set MongoDbSettings:Password Pass#word1
 
 #### Run mongo in docker container
 docker run -d --rm --name mongo -p 27017:27017 -v mongodbdata:/data/db -e MONGO_INITDB_ROOT_USERNAME=mongoadmin -e MONGO_INITDB_ROOT_PASSWORD=Pass#word1 --network=itemsCatalog mongo
 
 #### Build api into docker with seetings from Dockerfile
-docker build -t catalog:v1 .
-docker images
-docker network create itemsCatalog
-docker network ls (to see running docker networks)
-docker login/docker logout
+- docker build -t catalog:v1 .
+- docker images
+- docker network create itemsCatalog
+- docker network ls (to see running docker networks)
+- docker login/docker logout
 
 #### Run api in docker
 docker run -it --rm -p 8080:80 -e MongoDbSettings:Host=mongo -e MongoDbSettings:Password=Pass#word1 --network=itemsCatalog catalog:v1
