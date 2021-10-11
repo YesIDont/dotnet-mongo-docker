@@ -1,4 +1,6 @@
 # ASP.NET + MongoDB tutorial
+Repo created based on the tutorial provided by freeCodeCamp.org
+[YouTube link](https://www.youtube.com/watch?v=ZXdFisA_hOY&t=11099s&ab_channel=freeCodeCamp.org)
 
 ### Instructions worth noting
 - dotnet --version
